@@ -1,0 +1,283 @@
+* {
+    padding: 0;
+    margin: 0;
+    user-select: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    min-width: 300px;
+    background-color: #ededed;
+    cursor: pointer;
+    position: relative;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 100%;
+    background-color: black;
+    z-index: 10;
+    transition: transform 0.3s ease, width 0.3s ease;
+    color: white;
+    cursor: pointer;
+    opacity: .7;
+    overflow-y: auto;
+    display: none;
+}
+
+header::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar */
+}
+
+/* Hide scrollbar for Firefox */
+header {
+    scrollbar-width: none; /* Hides scrollbar */
+    -ms-overflow-style: none; /* Hides scrollbar for IE and Edge */
+}
+
+.header-expanded{
+    width: 250px;
+    transition: width 0.5s ease;
+}
+
+#hamburger-btn{
+    position: fixed;
+    top: 0;
+    right: 5px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease;
+}
+
+.material-symbols-outlined {
+    font-size: 35px !important;
+    
+}
+
+.close {
+    display: none !important; /* Hide the close icon initially */
+}
+.toggle .open {
+    display: none; /* Hide the menu icon on toggle */
+}
+.toggle .close {
+    display: block !important; /* Show the close icon on toggle */
+}
+
+#dropDown{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.2s ease;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.options-col{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons-header{
+    text-align: center !important;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+}
+
+ .button{
+    appearance: none;
+    outline: none;
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3 ease;
+}
+
+.button:hover{
+    background-color: red;
+}
+
+.button-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-left: 10px;
+}
+
+.button-text{
+    padding-left: 20px;
+    font-family: "Open Sans", sans-serif;
+}
+
+
+ h1{
+    text-align: center;
+    font-size: 1.75rem;
+    margin: 20px auto;
+    font-family: "Pacifico", cursive;
+    font-weight: 500;
+}
+
+#canvas{
+    z-index: 0;
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 0 auto;
+    flex-direction: column;
+    overflow: hidden;
+    height: 62vh;
+}
+
+#grid{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    box-shadow: 5px 2px 2px rgba(160, 158, 158, 0.61);
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    transition: background-color 0.3s ease
+}
+
+#gridSizeSlider{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 75px;
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+}
+
+#gridSizeText{
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-family: "Open Sans", sans-serif;
+}
+
+input[type="range"]{
+    -webkit-appearance : none;
+    height: 10px;
+    width: 50%;
+    background-color: lightgrey;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background: black;
+    transition: background 0.3s ease;
+}
+
+input[type = "color"]{
+    margin-left: 10px;
+}
+
+.grid-items{
+    z-index: 0;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    transition: padding 0.3s ease;
+}
+
+@media only screen and (max-width: 700px) and (orientation: landscape) {
+    header{
+        overflow: auto;
+    }
+     #gridSizeText{
+        display: none;
+    }
+    #gridSizeSlider{
+        height: auto;
+    }
+
+}
+
+@media only screen and (min-width: 1025px)  {
+    html{
+        font-size: 16px;
+    }
+    body, button{
+        font-size: 1rem;
+    }
+
+    .buttons-header{
+        font-size: 1.3rem
+    }
+
+    h1{
+        font-size: 2rem;
+    }
+    #hamburger-btn{
+        display: none;
+    }
+    #canvas{
+        position: relative;
+        max-width: 800px;
+        flex-direction: row;
+        gap: 10px;
+        margin-bottom: 10px;
+        transition: max-width 0.3s ease;
+        height: 65vh;
+    }
+    header{
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 250px;
+        display: block !important;
+        box-shadow: 5px 2px 2px rgba(160, 158, 158, 0.61);
+        overflow: hidden;
+    }
+    #grid{
+        width: calc(100% - 200px);
+        height: 100%;
+    }
+
+    footer{
+        text-align: center;
+    }
+   
+}
